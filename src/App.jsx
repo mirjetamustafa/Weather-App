@@ -1,7 +1,14 @@
 import './App.css'
+import Header from './components/Header'
+import Weather from './components/Weather'
 
 function App() {
-  return <div className="text-red-500 text-3xl">Weather app</div>
+  return (
+    <div className="">
+      <Header />
+      <Weather />
+    </div>
+  )
 }
 
 export default App
