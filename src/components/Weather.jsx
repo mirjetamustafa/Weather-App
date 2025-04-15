@@ -5,6 +5,7 @@ import sun from '../assets/3.png'
 import claudy from '../assets/4.png'
 import snow from '../assets/5.png'
 import { RiSpeedUpLine } from 'react-icons/ri'
+import axios from 'axios'
 
 function Weather() {
   return (
