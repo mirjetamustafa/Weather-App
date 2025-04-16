@@ -1,21 +1,32 @@
 import React from 'react'
 import sunRain from '../assets/1.png'
 
-function Header() {
+function Header({ location, setLocation, searchLocation, weatherIcon }) {
   return (
     <div className="bg-white shadow p-5">
       <div className="md:flex justify-between px-9">
         <div className="flex max-md:mb-5">
-          <img src={sunRain} alt="" width={40} />
+          {weatherIcon.icon && (
+            <img src={weatherIcon.icon} alt="weather icon" width={40} />
+          )}
+          {/* <img src={sunRain} alt="" width={40} /> */}
           <h3 className="text-2xl font-bold  mt-1 mx-2">WeatherNow</h3>
         </div>
 
         <div class="relative">
           <input
+            value={location}
+            onChange={(event) => setLocation(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter') {
+                searchLocation()
+              }
+            }}
             class="w-100 bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-gray-200 shadow-xs rounded-full pl-3 pr-28 py-2 transition duration-300 ease focus:outline-none"
             placeholder="Search city..."
           />
           <button
+            onClick={searchLocation}
             class="absolute top-1 right-1 flex items-center py-1 px-2.5  text-center text-gray-500 transition-all active:shadow-none hover:text-blue-600 cursor-pointer disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             type="button"
           >
